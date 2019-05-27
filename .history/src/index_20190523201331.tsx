@@ -15,6 +15,7 @@ import Tree from './tree';
 // import Tree from './tree';
 // import style from '~antd/dist/antd.css';
 // import  './index.module.less';
+import data from './data';
 
 /**
  * Initialization data for the jupyterlab-extension-demo extension.
@@ -26,7 +27,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
     console.log('JupyterLab extension jupyterlab-extension-analysis is activated!');
     let div = ReactWidget.create(
-        <Tree />
+        <Tree treeData={data} />
     );
     div.id = 'analysisTree';
     div.title.label = '分析模块';

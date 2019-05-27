@@ -69,7 +69,7 @@ class ExploreTree extends PureComponent {
     return (
       <div className='tree'>
         <div className="searchWrap">
-          <Input className='search' placeholder="请输入名称" onChange={this.search} />
+          <Input className='search' placeholder="请输入名称" onChange={this.search} suffix={<Icon onClick={this.getTree} type="reload" />} />
         </div>
         <div className='treelist'>
           {

@@ -57,11 +57,7 @@ class ExploreTree extends PureComponent {
   }
 
   search = (e) => {
-    request.get('/aps/pipes/project/24bc702c-8244-42af-ab68-9c894ce4867c/notebook/module/treelist', {keyWords: e.target.value}).then(jsonResponse => {
-      this.setState({
-        treeData: jsonResponse
-      })
-    })
+    console.log(e.target.value);
   }
 
   render() {
@@ -69,7 +65,7 @@ class ExploreTree extends PureComponent {
     return (
       <div className='tree'>
         <div className="searchWrap">
-          <Input className='search' placeholder="请输入名称" onChange={this.search} />
+          <Input className='search' placeholder="请输入名称" onChange={this.search} suffix={<Icon onClick={this.getTree} type="reload" />} />
         </div>
         <div className='treelist'>
           {

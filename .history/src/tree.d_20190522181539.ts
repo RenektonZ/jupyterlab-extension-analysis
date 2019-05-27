@@ -2,6 +2,8 @@ import * as React from 'react';
 
 export interface ExploreTreeProps {
   className?: string;
+  treeData: Array<any>,
+  expendId?: Array<any>,
 }
 
 declare class ExploreTree extends React.PureComponent<ExploreTreeProps, any> {

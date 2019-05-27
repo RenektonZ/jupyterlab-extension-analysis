@@ -2,6 +2,7 @@ import React, { PureComponent, ReactNode } from 'react';
 import { Icon, Tree, Divider, Tooltip } from 'antd';
 import { Input } from 'antd';
 import request from './utils/request';
+import data from './data';
 import '../style/index.css';
 
 const { TreeNode } = Tree;
@@ -21,14 +22,11 @@ class ExploreTree extends PureComponent {
     request.get('/aps/pipes/session/sso').then(jsonResponse => {
       console.log(jsonResponse, '登陆11');
     })
-    this.getTree();
-  }
-
-  getTree = () => {
     request.get('/aps/pipes/project/24bc702c-8244-42af-ab68-9c894ce4867c/notebook/module/treelist').then(jsonResponse => {
-      this.setState({
-        treeData: jsonResponse
-      })
+      console.log(jsonResponse, 'aaaa');
+    })
+    this.setState({
+      treeData: data
     })
   }
 
@@ -57,11 +55,11 @@ class ExploreTree extends PureComponent {
   }
 
   search = (e) => {
-    request.get('/aps/pipes/project/24bc702c-8244-42af-ab68-9c894ce4867c/notebook/module/treelist', {keyWords: e.target.value}).then(jsonResponse => {
-      this.setState({
-        treeData: jsonResponse
-      })
-    })
+    console.log(e.target.value);
+  }
+
+  reload = () => {
+
   }
 
   render() {
@@ -69,7 +67,7 @@ class ExploreTree extends PureComponent {
     return (
       <div className='tree'>
         <div className="searchWrap">
-          <Input className='search' placeholder="请输入名称" onChange={this.search} />
+          <Input className='search' placeholder="请输入名称" onChange={this.search} suffix={<Icon onClick={this.reload} type="reload" />} />
         </div>
         <div className='treelist'>
           {

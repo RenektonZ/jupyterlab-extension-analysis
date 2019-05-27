@@ -41,7 +41,7 @@
 .tree .ant-tree{
       padding: 0 8px;
 }
-.search .ant-input{
+.search input{
   outline: none;
   border-radius: 0;
 }
